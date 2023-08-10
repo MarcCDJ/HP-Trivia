@@ -9,4 +9,5 @@ import Foundation
 
 enum Constants {
     static let hpFont = "PartyLetPlain"
+    static let audioInfinity: Int = -1
 }

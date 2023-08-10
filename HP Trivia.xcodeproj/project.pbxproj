@@ -23,6 +23,7 @@
 		86D550F52A8405E300EF2E34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D550F42A8405E300EF2E34 /* Constants.swift */; };
 		86D91E2D2A852BF900BE862F /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E2C2A852BF900BE862F /* Instructions.swift */; };
 		86D91E2F2A85404900BE862F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E2E2A85404900BE862F /* Settings.swift */; };
+		86DCFB822A8584C900415838 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DCFB812A8584C900415838 /* Gameplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		86D550F42A8405E300EF2E34 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		86D91E2C2A852BF900BE862F /* Instructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		86D91E2E2A85404900BE862F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		86DCFB812A8584C900415838 /* Gameplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				86D550D32A83C88700EF2E34 /* HP_TriviaApp.swift */,
 				86D550D52A83C88700EF2E34 /* ContentView.swift */,
+				86DCFB812A8584C900415838 /* Gameplay.swift */,
 				86D91E2E2A85404900BE862F /* Settings.swift */,
 				86D91E2C2A852BF900BE862F /* Instructions.swift */,
 				86D550F42A8405E300EF2E34 /* Constants.swift */,
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86D550D62A83C88700EF2E34 /* ContentView.swift in Sources */,
+				86DCFB822A8584C900415838 /* Gameplay.swift in Sources */,
 				86D550D42A83C88700EF2E34 /* HP_TriviaApp.swift in Sources */,
 				86D91E2D2A852BF900BE862F /* Instructions.swift in Sources */,
 				86D550F52A8405E300EF2E34 /* Constants.swift in Sources */,

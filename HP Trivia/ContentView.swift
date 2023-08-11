@@ -196,6 +196,7 @@ struct ContentView: View {
         let sound = Bundle.main.path(forResource: "magic-in-the-air", ofType: "mp3")
         audioPlayer = try! AVAudioPlayer(contentsOf: URL(filePath: sound!))
         audioPlayer.numberOfLoops = Constants.audioInfinity
+        // TODO: uncomment
 //        audioPlayer.play()
     }
 

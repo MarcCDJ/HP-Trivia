@@ -200,7 +200,7 @@ struct ContentView: View {
 //        audioPlayer.play()
     }
 
-    private func toggleAudio() {
+    func toggleAudio() {
         if audioPlayer.isPlaying {
             audioPlayer.stop()
         } else {
@@ -211,6 +211,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        VStack {
+            ContentView()
+        }
     }
 }

@@ -43,6 +43,16 @@ struct Gameplay: View {
                         .tint(.red.opacity(0.5))
 
                         Spacer()
+                        
+                        Image(systemName: "speaker")
+                            .font(.title2)
+                            .padding(.top, 1)
+                            .foregroundStyle(.white)
+                            .onTapGesture {
+                                toggleMusic()
+                            }
+
+                        Spacer()
 
                         Text("Score: 33")
                     }
@@ -318,7 +328,7 @@ struct Gameplay: View {
                         }
                     }
                     .animation(.easeInOut(duration: tappedCorrectAnswer ? 2.7 : 0).delay(tappedCorrectAnswer ? 2.7 : 0), value: tappedCorrectAnswer)
-
+                    
                     Group {
                         Spacer()
                         Spacer()
@@ -333,10 +343,7 @@ struct Gameplay: View {
             animateViewsIn = true
             playMusic()
         }
-        .onTapGesture {
-            // TODO: add to music icon so it doesn't happen on all controls
-            toggleMusic()
-        }
+
     }
     
     private func playMusic() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86C596B92A88099B00887D3E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C596B82A88099B00887D3E /* Store.swift */; };
 		86D550D42A83C88700EF2E34 /* HP_TriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D550D32A83C88700EF2E34 /* HP_TriviaApp.swift */; };
 		86D550D62A83C88700EF2E34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D550D52A83C88700EF2E34 /* ContentView.swift */; };
 		86D550D82A83C88900EF2E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86D550D72A83C88900EF2E34 /* Assets.xcassets */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86C596B72A88037900887D3E /* HPConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = HPConfig.storekit; sourceTree = "<group>"; };
+		86C596B82A88099B00887D3E /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		86D550D02A83C88700EF2E34 /* HP Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HP Trivia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D550D32A83C88700EF2E34 /* HP_TriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HP_TriviaApp.swift; sourceTree = "<group>"; };
 		86D550D52A83C88700EF2E34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,7 +86,9 @@
 				86DCFB812A8584C900415838 /* Gameplay.swift */,
 				86D91E2E2A85404900BE862F /* Settings.swift */,
 				86D91E2C2A852BF900BE862F /* Instructions.swift */,
+				86C596B82A88099B00887D3E /* Store.swift */,
 				86D550F42A8405E300EF2E34 /* Constants.swift */,
+				86C596B72A88037900887D3E /* HPConfig.storekit */,
 				86D550E22A83CB3600EF2E34 /* trivia.json */,
 				86D550D72A83C88900EF2E34 /* Assets.xcassets */,
 				86D550EB2A83CB6800EF2E34 /* deep-in-the-dell.mp3 */,
@@ -187,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C596B92A88099B00887D3E /* Store.swift in Sources */,
 				86D550D62A83C88700EF2E34 /* ContentView.swift in Sources */,
 				86DCFB822A8584C900415838 /* Gameplay.swift in Sources */,
 				86D550D42A83C88700EF2E34 /* HP_TriviaApp.swift in Sources */,

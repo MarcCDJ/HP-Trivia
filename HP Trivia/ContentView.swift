@@ -119,6 +119,7 @@ struct ContentView: View {
                             if animateViewsIn {
                                 Button {
                                     playGame.toggle()
+                                    audioPlayer.stop()
                                 } label: {
                                     Text("Play")
                                         .font(.largeTitle)
@@ -185,6 +186,7 @@ struct ContentView: View {
         .ignoresSafeArea()
         .onAppear {
             animateViewsIn = true
+            // TODO: re-enable sound when coming back from Gameplay view
             playAudio()
         }
         .onTapGesture {
@@ -195,12 +197,12 @@ struct ContentView: View {
     private func playAudio() {
         let sound = Bundle.main.path(forResource: "magic-in-the-air", ofType: "mp3")
         audioPlayer = try! AVAudioPlayer(contentsOf: URL(filePath: sound!))
+        audioPlayer.volume = 0.25
         audioPlayer.numberOfLoops = Constants.audioInfinity
-        // TODO: uncomment
-//        audioPlayer.play()
+        audioPlayer.play()
     }
 
-    func toggleAudio() {
+    private func toggleAudio() {
         if audioPlayer.isPlaying {
             audioPlayer.stop()
         } else {

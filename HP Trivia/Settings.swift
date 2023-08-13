@@ -80,11 +80,6 @@ struct Settings: View {
                                 }
                                 .onTapGesture {
                                     let product = store.products[i - 3]
-                                    
-                                    // TODO: book to purchase sometimes does not have the correct ID
-//                                    print("i: \(i)")
-//                                    print("books: \(store.books)")
-//                                    print("purchased: \(store.purchasedIDs)")
 
                                     Task {
                                         await store.purchase(product)

@@ -23,20 +23,25 @@ struct Settings: View {
 
                 ScrollView {
                     LazyVGrid(columns: [GridItem(), GridItem()]) {
-                        ForEach(0..<7) { i in
-                            if store.books[i] == .active {
+                        ForEach(0 ..< 7) { i in
+                            if store.books[i] == .active
+                                || (store.books[i] == .locked && store.purchasedIDs.contains("hp\(i + 1)"))
+                            {
                                 ZStack(alignment: .bottomTrailing) {
                                     Image("hp\(i + 1)")
                                         .resizable()
                                         .scaledToFit()
                                         .shadow(radius: 7)
-                                    
+
                                     Image(systemName: "checkmark.circle.fill")
                                         .font(.largeTitle)
                                         .imageScale(.large)
                                         .foregroundColor(.green)
                                         .shadow(radius: 1)
                                         .padding(3)
+                                }
+                                .task {
+                                    store.books[i] = .active
                                 }
                                 .onTapGesture {
                                     store.books[i] = .inactive
@@ -48,7 +53,7 @@ struct Settings: View {
                                         .scaledToFit()
                                         .shadow(radius: 7)
                                         .overlay(Rectangle().opacity(0.33))
-                                    
+
                                     Image(systemName: "circle")
                                         .font(.largeTitle)
                                         .imageScale(.large)
@@ -59,19 +64,31 @@ struct Settings: View {
                                 .onTapGesture {
                                     store.books[i] = .active
                                 }
-                            } else {    // books[i] == .locked
+                            } else { // books[i] == .locked
                                 ZStack {
                                     Image("hp\(i + 1)")
                                         .resizable()
                                         .scaledToFit()
                                         .shadow(radius: 7)
                                         .overlay(Rectangle().opacity(0.75))
-                                    
+
                                     Image(systemName: "lock.fill")
                                         .font(.largeTitle)
                                         .imageScale(.large)
                                         .shadow(color: .white.opacity(0.75),
                                                 radius: 3)
+                                }
+                                .onTapGesture {
+                                    let product = store.products[i - 3]
+                                    
+                                    // TODO: book to purchase sometimes does not have the correct ID
+//                                    print("i: \(i)")
+//                                    print("books: \(store.books)")
+//                                    print("purchased: \(store.purchasedIDs)")
+
+                                    Task {
+                                        await store.purchase(product)
+                                    }
                                 }
                             }
                         }

@@ -120,6 +120,8 @@ struct ContentView: View {
                         VStack {
                             if animateViewsIn {
                                 Button {
+                                    filterQuestions()
+                                    game.startGame()
                                     playGame.toggle()
                                     audioPlayer.stop()
                                 } label: {
@@ -128,7 +130,7 @@ struct ContentView: View {
                                         .foregroundColor(.white)
                                         .padding(.vertical, 7)
                                         .padding(.horizontal, 50)
-                                        .background(.brown)
+                                        .background(store.books.contains(.active) ? .brown : .gray)
                                         .cornerRadius(7)
                                         .shadow(radius: 5)
                                 }
@@ -145,6 +147,7 @@ struct ContentView: View {
                                     Gameplay()
                                         .environmentObject(game)
                                 }
+                                .disabled(store.books.contains(.active) ? false : true)
                             }
                         }
                         .animation(
@@ -181,6 +184,18 @@ struct ContentView: View {
                         Spacer()
                     }
                     .frame(width: geo.size.width)
+                    
+                    VStack {
+                        if animateViewsIn {
+                            if store.books.contains(.active) == false {
+                                Text("No questions available. Go to settings.⬆")
+                                    .multilineTextAlignment(.center)
+                                    .transition(.opacity)
+                                
+                            }
+                        }
+                    }
+                    .animation(.easeInOut.delay(3), value: animateViewsIn)
 
                     Spacer()
                 }
@@ -212,6 +227,19 @@ struct ContentView: View {
         } else {
             audioPlayer.play()
         }
+    }
+    
+    private func filterQuestions() {
+        var books: [Int] = []
+        
+        for (index, status) in store.books.enumerated() {
+            if status == .active {
+                books.append(index + 1)
+            }
+        }
+        
+        game.filterQuestions(to: books)
+        game.newQuestion()
     }
 }
 

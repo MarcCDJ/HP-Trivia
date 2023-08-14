@@ -31,7 +31,6 @@ class Game: ObservableObject {
     }
     
     func startGame() {
-        print("Starting game. Score is: \(gameScore)")  // DEBUG
         gameScore = 0
         questionScore = 5
         answeredQuestions = []

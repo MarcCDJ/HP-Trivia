@@ -43,16 +43,6 @@ struct Gameplay: View {
                         .tint(.red.opacity(0.5))
 
                         Spacer()
-                        
-                        Image(systemName: "speaker")
-                            .font(.title2)
-                            .padding(.top, 1)
-                            .foregroundStyle(.white)
-                            .onTapGesture {
-                                toggleMusic()
-                            }
-
-                        Spacer()
 
                         Text("Score: \(game.gameScore)")
                     }
@@ -349,9 +339,14 @@ struct Gameplay: View {
         .ignoresSafeArea()
         .onAppear {
             animateViewsIn = true
-            playMusic()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                playMusic()
+            }
         }
-
+        .onTapGesture {
+            toggleMusic()
+        }
     }
 
     private func playMusic() {

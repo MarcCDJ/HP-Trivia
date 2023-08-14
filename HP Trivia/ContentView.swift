@@ -123,7 +123,6 @@ struct ContentView: View {
                                     filterQuestions()
                                     game.startGame()
                                     playGame.toggle()
-                                    audioPlayer.stop()
                                 } label: {
                                     Text("Play")
                                         .font(.largeTitle)
@@ -146,6 +145,13 @@ struct ContentView: View {
                                 .fullScreenCover(isPresented: $playGame) {
                                     Gameplay()
                                         .environmentObject(game)
+                                        .onAppear {
+                                            audioPlayer.setVolume(0, fadeDuration: 2)
+                                        }
+                                        .onDisappear {
+                                            audioPlayer.play()
+                                            audioPlayer.setVolume(0.25, fadeDuration: 3)
+                                        }
                                 }
                                 .disabled(store.books.contains(.active) ? false : true)
                             }
@@ -205,7 +211,6 @@ struct ContentView: View {
         .ignoresSafeArea()
         .onAppear {
             animateViewsIn = true
-            // TODO: re-enable sound when coming back from Gameplay view
             playAudio()
         }
         .onTapGesture {

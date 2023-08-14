@@ -30,6 +30,7 @@ class Game: ObservableObject {
     }
     
     func startGame() {
+        print("Starting game. Score is: \(gameScore)")  // DEBUG
         gameScore = 0
         questionScore = 5
         answeredQuestions = []
@@ -68,13 +69,12 @@ class Game: ObservableObject {
     func correct() {
         answeredQuestions.append(currentQuestion.id)
         
-        gameScore += questionScore
+        withAnimation {
+            gameScore += questionScore
+        }
     }
     
     func endGame() {
-//        recentScores[2] = recentScores[1]
-//        recentScores[1] = recentScores[0]
-//        recentScores[0] = gameScore
         recentScores.insert(gameScore, at: 0)
         recentScores.removeLast()
     }
